@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Execute Netconf Payload",
+  "description": "Executes Netconf payload on the given network element name",
+  "type": "object",
+  "required": [
+    "_links "
+  ],
+  "additionalProperties": false,
+  "properties": {
+"_links": {
+      "type": "object",
+      "properties": {
+        " statusResourceUrl": {
+          "type": "object",
+          "properties": {
+            "href": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "href"
+          ]
+        }
+      }
+    }
+  },
+  "required": [
+    " statusResourceUrl"
+  ]
+}

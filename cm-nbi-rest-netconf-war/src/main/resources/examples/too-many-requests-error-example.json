@@ -1,0 +1,4 @@
+{
+    "errorTitle": "Too Many Requests",
+    "errorBody": "Received more than max allowed Netconf Payload REST requests."
+}

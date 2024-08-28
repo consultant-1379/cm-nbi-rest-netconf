@@ -1,0 +1,14 @@
+{
+“status”: “COMPLETED”,
+“result”: “SUCCESS”
+}
+or
+{
+“status”: “IN_PROGRESS”
+}
+or
+{
+"result":       "SUCCESS",
+"status":       "COMPLETED",
+"resultPayload":"<nrf-agent xmlns=\"urn:rdns:com:ericsson:oammodel:ericsson-nrf-agent\"><nrfagent-register-service><nf-load-report-threshold>30</nf-load-report-threshold></nrfagent-register-service><nrfagent-notify-service><notification-address><port>9082</port><scheme>http</scheme><fqdn>nrfsim.ccdm-control.svc.cluster.local</fqdn><id>0</id></notification-address></nrfagent-notify-service><nrf><failover-threshold>10</failover-threshold><mode>active-standby</mode><profile><fqdn>nrfsim.ccdm-control.svc.cluster.local</fqdn><id>nrf-server-0</id><service><scheme xmlns=\"urn:rdns:com:ericsson:oammodel:ericsson-nrf-agent\">http</scheme><id>8</id></service><service><priority>1</priority><fqdn>nrfsim.ccdm-control.svc.cluster.local</fqdn><scheme xmlns=\"urn:rdns:com:ericsson:oammodel:ericsson-nrf-agent\">http</scheme><name>nnrf-disc</name><id>1</id><ip-endpoint><port>9082</port><transport>tcp</transport><id>0</id></ip-endpoint><version><api-version-in-uri>v1</api-version-in-uri></version></service><service><priority>1</priority><fqdn>nrfsim.ccdm-control.svc.cluster.local</fqdn><scheme xmlns=\"urn:rdns:com:ericsson:oammodel:ericsson-nrf-agent\">http</scheme><name>nnrf-nfm</name><id>0</id><ip-endpoint><port>9082</port><transport>tcp</transport><id>0</id></ip-endpoint><version><api-version-in-uri>v1</api-version-in-uri></version></service></profile></nrf></nrf-agent>"
+}

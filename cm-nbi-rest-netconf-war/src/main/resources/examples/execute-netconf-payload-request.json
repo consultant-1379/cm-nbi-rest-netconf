@@ -1,0 +1,59 @@
+{
+  "name" : "execute Netconf payload for get-config request",
+  "description" : "",
+  "url" : "https://<<domain-name>>/enm/nbi/cm/v1/networkelement/{network-element-name}",
+  "uri parameters":[
+    {
+      "networkElementName" : "5G113CCDM001"
+    }
+  ],
+  "Headers" :
+  [{
+    "Accept" : "application/json",
+    "Content-Type" : "application/xml"
+  }],
+  "Method" : "patch",
+  "Body" : "<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+              <get-config>
+                    <source><candidate /></source>
+                    <filter type="subtree">
+                     <nrf-agent xmlns="urn:rdns:com:ericsson:oammodel:ericsson-nrf-agent"/>
+                    </filter>
+              </get-config>
+            </rpc> ]]>]]>"  
+}
+Example for edit-config request
+{
+  "name" : "execute Netconf payload for edit-config request",
+  "description" : "",
+  "url" : "https://<<domain-name>>/enm/nbi/cm/v1/networkelement/{network-element-name}",
+  "uri parameters":[
+    {
+      "networkElementName" : "5G113CCDM001"
+    }
+  ],
+  "Headers" :
+  [{
+    "Accept" : "application/json",
+    "Content-Type" : "application/xml"
+  }],
+  "Method" : "patch",
+  "Body" : "<rpc message-id="1" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+              <edit-config>
+                <target><running/></target>
+                <config xmlns:xc="urn:ietf:params:xml:ns:netconf:base:1.0">
+                  <nrf-agent xmlns="urn:rdns:com:ericsson:oammodel:ericsson-nrf-agent">
+                   <nrf>
+                      <profile>
+                        <id>nrf-server-0</id>
+                        <service>
+                         <id>7</id>
+                         <scheme xmlns="urn:rdns:com:ericsson:oammodel:ericsson-nrf-agent">http</scheme>
+                        </service>
+                      </profile>
+                   </nrf>
+                  </nrf-agent>
+                </config>
+              </edit-config>
+            </rpc> ]]>]]>"
+}

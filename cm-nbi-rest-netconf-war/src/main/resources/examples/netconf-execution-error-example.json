@@ -1,0 +1,13 @@
+{
+    "result":     "FAILURE",
+    "status":     "COMPLETED",
+    "errorTitle": "Netconf Execution Error",
+    "errorBody":  "NetconfResponse [messageId=9, isError=true, errorMessage=Error Type: application\nError Tag: MISSING_ELEMENT\nError Severity:error\nError Message:MO key attribute missing\nError Info:\n    missing-element: sysMId\n, errorCode=0, data=, errors=[Error Type: application\nError Tag: MISSING_ELEMENT\nError Severity:error\nError Message:MO key attribute missing\nError Info:\n    missing-element: sysMId\n]]"
+}
+or
+{
+    "result":     "FAILURE",
+    "status":     "COMPLETED",
+    "errorTitle": "Netconf Execution Error",
+    "errorBody":  "com.ericsson.oss.mediation.cm.exceptions.NetconfExecutionException: NetconfResponse [messageId=0, isError=true, errorMessage=RpcValidatorComponent: \"com.ericsson.oss.mediation.util.netconf.flow.FlowOutput@76c4812b\" configuration xml is malformed, command cannot be executed, errorCode=0, data=, errors=null]"
+}

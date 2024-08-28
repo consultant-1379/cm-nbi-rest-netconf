@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description" : "",
+  "type" : "object",
+  "properties" : {
+    "name" : {
+	  "type" : "string",
+	  "minLength" : 1
+	},
+	"description" : {
+	  "type" : "string"
+	},
+	"url" :{
+	  "type" : "string"
+	},
+	"uri parameters" : {
+	  "type" : "array",
+	  "uniqueItems" : true,
+	  "minItems" : 1,
+	  "items" : {
+	    "required" : [
+		  "networkElementName"
+		],
+		"properties" : {
+		  "networkElementName" : {
+		    "type" : "string",
+			"minLength" : 1
+		  }
+		}
+	  }
+	},
+	"Headers" : {
+	  "type" : "array",
+	  "uniqueItems" : true,
+	  "minItems" : 1,
+	  "items" : {
+	    "required" : [
+		  "Accept",
+		  "Content-Type"
+		],
+		"properties" : {
+		  "Accept" : {
+		    "type" : "string",
+			"minLength" : 1
+		  },
+		  "Content-Type" : {
+		    "type" : "string",
+			"minLength" : 1
+		  }
+		}
+	  }
+	},
+	"Method" : {
+	  "type" : "string",
+	  "minLength" : 1
+	},
+	"Body" : {
+	  "type" : "string",
+	  "minLength" : 1
+	},
+	"rpc_msg" : {
+    "type" : "string",
+    "minLength" : 1
+    }
+  },
+  "required" : [
+    "name",
+	"description",
+	"url",
+	"uri parameters",
+	"Headers",
+	"Method",
+	"Body"
+  ]
+}

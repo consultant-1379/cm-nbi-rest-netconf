@@ -1,0 +1,143 @@
+#%RAML 1.0
+title: CM NETCONF Payload Rest NBI Documentation
+baseUri: https://{customerProvided}/enm/nbi/cm/v1/
+mediaTypes:  application/json
+types:
+  execute-netconf-payload-request: !include schema\execute-netconf-payload-request-schema.json
+  execute-netconf-payload-response: !include schema\execute-netconf-payload-response-schema.json
+  status-of-netconf-payload-request: !include schema\status-of-netconf-payload-request-schema.json
+  status-of-netconf-payload-response: !include schema\status-of-netconf-payload-response-schema.json
+  error-code: !include schema\error-code.json
+
+/enm/nbi/cm/v1:
+  /networkelement/{network-element-name}:
+    patch:
+      description: "CM Netconf Payload REST Northbound interface provides support for NBI client applications
+                    to apply Netconf configurations on the node, using a REST interface.
+                    This rest end point can also be used to perform action on the node and retrieve configuration data from node."
+      headers:
+        Content-Type:
+          default: application/xml
+        Accept:
+          default: application/json
+      body:
+        application/xml:
+          example: !include examples\execute-netconf-payload-request.json
+          type: execute-netconf-payload-request
+      responses:
+	  
+        200:
+          body:
+            application/json:
+              type: execute-netconf-payload-response
+              example: !include examples\execute-netconf-payload-response.json 
+        400:
+          body:
+            application/json:
+              description: When the request given to the rest end point is not as proper.
+              type: error-code
+              example: !include examples\invalid-netconf-payload-example.json
+        401:
+          body:
+            application/json:
+              description: When authorization is required for performing the action.
+              type: string
+              example: |
+                Failed due to unauthorized access capabilities (tbac or rbac) for the user.
+        404:
+          body:
+            application/json:
+              description: Network Element name provided does not exist in ENM
+              type: error-code
+              example: !include examples\network-element-doesnot-exist-example.json
+        405:
+          body:
+            application/json:
+              description: The method specified in the Request-Line is not allowed for the resource identified by the Request-URI.
+              type: string
+              example: |
+                Method Not Allowed
+        412:
+          body:
+            application/json:
+              description: Network Element doesn't support CM Netconf Payload REST NBI feature
+              type: error-code
+              example: !include examples\Unsupported Network Element.json
+        415:
+          body:
+            application/json:
+              description: Invalid Content-type provided.
+              type: string
+              example: |
+                Unsupported Media Type.
+        429:
+          body:
+            application/json:
+              description: Too many requests.
+              type: error-code
+              example: !include examples\too-many-requests-error-example.json
+        500:
+          body:
+            application/json:
+              description: When the server respond with some internal code error
+              type: error-code
+              description: Encountered an unexpected condition in ENM while applying Netconf payload on node.
+                                                 OR
+                           Netconf Payload execution failure on the node
+              example: !include examples\internal-server-error-example.json
+  /request/{requestId}:
+    get:
+      description: "To know the status of netconf-payload execution request"
+      headers:
+        Accept:
+          default: application/json
+      body:
+        application/json:
+          example: !include examples\status-of-netconf-payload-request.json
+          type: status-of-netconf-payload-request
+
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include examples\status-of-netconf-payload-response.json
+              type: status-of-netconf-payload-response
+        401:
+          body:
+            application/json:
+              description: Failed due to unauthorized access capabilities (tbac or rbac) for the user.
+              example: |
+                Failed due to unauthorized access capabilities (tbac or rbac) for the user.
+        404:
+          body:
+            application/json:
+              description: Network Element name provided does not exist in ENM
+              type: error-code
+              example: !include examples\request-id-example.json      			  
+        405:
+          body:
+            application/json:
+              description: The method specified in the Request-Line is not allowed for the resource identified by the Request-URI.
+              example: |
+                Method Not Allowed.
+        415:
+          body:
+            application/json:
+              description: Invalid Content-type provided.
+              example: |
+                Unsupported Media Type.
+        422:
+          body:
+            application/json:
+              description: When there is an error in netconf request.
+              type: error-code
+              example: !include examples\netconf-execution-error-example.json			  
+        500:
+          body:
+            application/json:
+              description: Encountered an unexpected condition in ENM while applying Netconf payload on node.
+                                                 OR
+                           Netconf Payload execution failure on the node
+
+              type: error-code
+              example: !include examples\internal-execution-error-example.json

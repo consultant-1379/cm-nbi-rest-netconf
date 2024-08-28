@@ -1,0 +1,4 @@
+{
+    "errorTitle": "Unsupported Network Element",
+    "errorBody": "Network Element doesn't support CM Netconf Payload REST NBI feature."
+}

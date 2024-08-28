@@ -1,0 +1,15 @@
+{
+  "name" : "status Netconf payload",
+  "description" : "Unique Identifier to get the statusofNetconfPayload execution.",
+  "url" : "https://<<domain-name>>/enm/nbi/cm/v1/request/{requestId}",
+  "uri parameters":[
+    {
+	  "requestId" : "f6b8bc75-b7e7-4de9-ad3d-11d8b3b4fade"
+	}
+  ],
+  "Headers" :
+  [{
+    "Accept" : "application/json"
+  }],
+  "Method" : "get"
+}

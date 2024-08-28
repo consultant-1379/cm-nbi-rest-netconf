@@ -1,0 +1,7 @@
+{
+  "_links": {
+    " statusResourceUrl ": {
+      "href": " https://<<domain-name>>/nbi/cm/v1/request/f6b8bc75-b7e7-4de9-ad3d-11d8b3b4fade "
+    }
+  }
+}

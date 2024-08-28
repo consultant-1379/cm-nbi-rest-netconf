@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Status of Netconf Payload Execution",
+  "description": "Status of Netconf Payload execution on the given network element name",
+  "type": "object",
+  "required": [
+    "status",
+	"result"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "status": {
+      "enum": ["INITIATED","PARSING","IN_PROGRESS","COMPLETED"]
+    },
+    "result": {
+      "enum": ["SUCCESS","FAILIURE"]
+    }
+  }
+}

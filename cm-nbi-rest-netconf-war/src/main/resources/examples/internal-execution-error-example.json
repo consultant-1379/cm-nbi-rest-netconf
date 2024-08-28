@@ -1,0 +1,6 @@
+{
+    "result":     "FAILURE",
+    "status":     "COMPLETED",
+    "errorTitle": "Internal Execution Error",
+    "errorBody":  "NetconfResponse [messageId=0, isError=true, errorMessage=com.ericsson.oss.mediation.transport.api.exception.TransportException: The Socket Timeout is expired, errorCode=0, data=, errors=null]"
+}
